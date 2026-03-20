@@ -19,6 +19,13 @@ final class StudentController extends Controller
         $this->interests = new InterestModel();
     }
 
+    public function landing(): void
+    {
+        $this->view('student/landing', [
+            'programmeCount' => count($this->programmes->allPublished(null, '')),
+        ]);
+    }
+
     public function index(): void
     {
         $level = isset($_GET['level']) && ctype_digit((string) $_GET['level']) ? (int) $_GET['level'] : null;

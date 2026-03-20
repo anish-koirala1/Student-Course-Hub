@@ -189,6 +189,104 @@ button.danger {
     border: 1px solid #f5c4cd;
 }
 
+.hero {
+    padding: 1.4rem;
+    background: linear-gradient(160deg, #eef3ff 0%, #ffffff 100%);
+}
+
+.hero-professional {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.hero-main h2 {
+    margin-top: 0.35rem;
+    margin-bottom: 0.65rem;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+}
+
+.hero-lead {
+    margin: 0;
+    max-width: 62ch;
+    color: #304056;
+}
+
+.hero-panel {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.hero-panel h3 {
+    margin-top: 0;
+    margin-bottom: 0.65rem;
+}
+
+.hero-highlights {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.hero-highlights strong {
+    color: var(--primary);
+}
+
+.eyebrow {
+    margin: 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 0.9rem 0 0.4rem;
+}
+
+.secondary-link {
+    background: #41506a;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.landing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.landing-grid article {
+    margin: 0;
+}
+
+.landing-grid ul,
+.landing-grid ol {
+    margin: 0.5rem 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.35rem;
+}
+
+.landing-cta {
+    text-align: center;
+    background: linear-gradient(160deg, #ffffff 0%, #eef3ff 100%);
+}
+
+.landing-cta p {
+    margin-top: 0;
+    color: #304056;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -263,6 +361,14 @@ th, td {
 
     h1 {
         font-size: 1.25rem;
+    }
+
+    .hero {
+        padding: 1rem;
+    }
+
+    .hero-professional {
+        grid-template-columns: 1fr;
     }
 }
 

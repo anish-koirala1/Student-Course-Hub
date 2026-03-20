@@ -14,6 +14,11 @@ $student = new StudentController();
 $admin = new AdminController();
 
 if ($path === '/' && $method === 'GET') {
+    $student->landing();
+    return;
+}
+
+if ($path === '/programmes' && $method === 'GET') {
     $student->index();
     return;
 }

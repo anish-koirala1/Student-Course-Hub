@@ -1,6 +1,6 @@
 <section>
     <h2>Explore degree programmes</h2>
-    <form class="filter-form" method="get" action="/">
+    <form class="filter-form" method="get" action="/programmes">
         <label for="q">Search by keyword</label>
         <input id="q" name="q" value="<?= e($query) ?>" placeholder="e.g. Cyber Security">
 

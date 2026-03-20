@@ -16,7 +16,8 @@ declare(strict_types=1);
     <div class="container">
         <h1><a href="/"><?= e((string) app_config('app.name')) ?></a></h1>
         <nav aria-label="Primary">
-            <a href="/">Programmes</a>
+            <a href="/">Home</a>
+            <a href="/programmes">Programmes</a>
             <a href="/admin/dashboard">Admin</a>
         </nav>
     </div>

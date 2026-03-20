@@ -20,12 +20,15 @@ final class Database
 
         $host = app_config('db.host');
         $port = app_config('db.port');
+        $socket = (string) app_config('db.socket');
         $name = app_config('db.name');
         $charset = app_config('db.charset');
         $user = app_config('db.user');
         $pass = app_config('db.pass');
 
-        $dsn = "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
+        $dsn = $socket !== ''
+            ? "mysql:unix_socket={$socket};dbname={$name};charset={$charset}"
+            : "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
 
         try {
             self::$pdo = new PDO($dsn, $user, $pass, [
