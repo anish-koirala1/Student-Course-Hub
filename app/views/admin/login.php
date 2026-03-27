@@ -1,6 +1,8 @@
 <section class="auth-card">
-    <h2>Admin login</h2>
-    <form method="post" action="/admin/login">
+    <p class="eyebrow">Staff access</p>
+    <h1>Admin login</h1>
+    <p class="auth-card__hint">Use your assigned username and password.</p>
+    <form method="post" action="<?= e(url('/admin/login')) ?>">
         <?= csrf_input() ?>
         <label for="username">Username</label>
         <input id="username" name="username" required autocomplete="username">

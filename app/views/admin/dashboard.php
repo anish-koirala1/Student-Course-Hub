@@ -1,16 +1,19 @@
-<section>
-    <h2>Admin dashboard</h2>
-    <p>Signed in as <strong><?= e($user['Username']) ?></strong> (<?= e($user['Role']) ?>).</p>
-
-    <form method="post" action="/admin/logout">
+<section class="admin-panel admin-panel--intro">
+    <div class="admin-panel__head">
+        <h1>Admin dashboard</h1>
+        <p class="admin-meta">Signed in as <strong><?= e($user['Username']) ?></strong> <span class="role-pill"><?= e($user['Role']) ?></span></p>
+    </div>
+    <form method="post" action="<?= e(url('/admin/logout')) ?>" class="admin-logout-form">
         <?= csrf_input() ?>
         <button type="submit" class="secondary">Logout</button>
     </form>
 </section>
 
-<section>
-    <h3>Programmes</h3>
-    <p><a href="/admin/programmes/create">Create programme</a></p>
+<section class="admin-panel">
+    <div class="admin-panel__head">
+        <h2>Programmes</h2>
+        <a class="text-link" href="<?= e(url('/admin/programmes/create')) ?>">+ Create programme</a>
+    </div>
     <div class="table-wrap">
         <table>
             <caption class="sr-only">Programmes list</caption>
@@ -31,8 +34,8 @@
                     <td data-label="Leader"><?= e($programme['ProgrammeLeader'] ?? 'TBA') ?></td>
                     <td data-label="Published"><?= (int) $programme['IsPublished'] === 1 ? 'Yes' : 'No' ?></td>
                     <td data-label="Actions">
-                        <a href="/admin/programmes/<?= (int) $programme['ProgrammeID'] ?>/edit">Edit</a>
-                        <form class="inline" method="post" action="/admin/programmes/<?= (int) $programme['ProgrammeID'] ?>/delete">
+                        <a href="<?= e(url('/admin/programmes/' . (int) $programme['ProgrammeID'] . '/edit')) ?>">Edit</a>
+                        <form class="inline" method="post" action="<?= e(url('/admin/programmes/' . (int) $programme['ProgrammeID'] . '/delete')) ?>">
                             <?= csrf_input() ?>
                             <button type="submit" class="danger">Delete</button>
                         </form>
@@ -44,9 +47,11 @@
     </div>
 </section>
 
-<section>
-    <h3>Modules</h3>
-    <p><a href="/admin/modules/create">Create module</a></p>
+<section class="admin-panel">
+    <div class="admin-panel__head">
+        <h2>Modules</h2>
+        <a class="text-link" href="<?= e(url('/admin/modules/create')) ?>">+ Create module</a>
+    </div>
     <div class="table-wrap">
         <table>
             <caption class="sr-only">Modules list</caption>
@@ -63,8 +68,8 @@
                     <td data-label="Name"><?= e($module['ModuleName']) ?></td>
                     <td data-label="Leader"><?= e($module['ModuleLeader'] ?? 'TBA') ?></td>
                     <td data-label="Actions">
-                        <a href="/admin/modules/<?= (int) $module['ModuleID'] ?>/edit">Edit</a>
-                        <form class="inline" method="post" action="/admin/modules/<?= (int) $module['ModuleID'] ?>/delete">
+                        <a href="<?= e(url('/admin/modules/' . (int) $module['ModuleID'] . '/edit')) ?>">Edit</a>
+                        <form class="inline" method="post" action="<?= e(url('/admin/modules/' . (int) $module['ModuleID'] . '/delete')) ?>">
                             <?= csrf_input() ?>
                             <button type="submit" class="danger">Delete</button>
                         </form>
@@ -76,12 +81,10 @@
     </div>
 </section>
 
-<section>
-    <h3>Mailing list</h3>
-    <p><a href="/admin/mailing">View and export mailing lists</a></p>
-</section>
-
-<section>
-    <h3>Programme module assignments</h3>
-    <p><a href="/admin/programme-modules">Manage modules per programme and year</a></p>
+<section class="admin-panel admin-panel--compact">
+    <h2>Quick links</h2>
+    <ul class="admin-link-list">
+        <li><a href="<?= e(url('/admin/mailing')) ?>">Mailing lists — view and export</a></li>
+        <li><a href="<?= e(url('/admin/programme-modules')) ?>">Programme module assignments</a></li>
+    </ul>
 </section>

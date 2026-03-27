@@ -1,6 +1,6 @@
-<section>
-    <h2>Programme module assignments</h2>
-    <form method="post" action="/admin/programme-modules/create">
+<section class="admin-panel">
+    <h1 class="admin-page-title">Programme module assignments</h1>
+    <form class="filter-form" method="post" action="<?= e(url('/admin/programme-modules/create')) ?>">
         <?= csrf_input() ?>
         <label for="programme_id">Programme</label>
         <select id="programme_id" name="programme_id" required>
@@ -31,8 +31,8 @@
     </form>
 </section>
 
-<section>
-    <h3>Current assignments</h3>
+<section class="admin-panel">
+    <h2 class="section-title">Current assignments</h2>
     <div class="table-wrap">
         <table>
             <caption class="sr-only">Programme module assignments</caption>
@@ -51,7 +51,7 @@
                     <td data-label="Module"><?= e($assignment['ModuleName']) ?></td>
                     <td data-label="Year"><?= (int) $assignment['Year'] ?></td>
                     <td data-label="Action">
-                        <form class="inline" method="post" action="/admin/programme-modules/<?= (int) $assignment['ProgrammeModuleID'] ?>/delete">
+                        <form class="inline" method="post" action="<?= e(url('/admin/programme-modules/' . (int) $assignment['ProgrammeModuleID'] . '/delete')) ?>">
                             <?= csrf_input() ?>
                             <button type="submit" class="danger">Remove</button>
                         </form>

@@ -1,6 +1,6 @@
-<section>
-    <h2>Programme mailing lists</h2>
-    <form method="get" action="/admin/mailing">
+<section class="admin-panel">
+    <h1 class="admin-page-title">Programme mailing lists</h1>
+    <form class="filter-form mailing-filter-form" method="get" action="<?= e(url('/admin/mailing')) ?>">
         <label for="programme">Select programme</label>
         <select id="programme" name="programme">
             <option value="">Choose programme</option>
@@ -12,14 +12,14 @@
         </select>
         <button type="submit">View mailing list</button>
         <?php if ($selectedProgramme > 0): ?>
-            <a class="button-link" href="/admin/mailing/export?programme=<?= (int) $selectedProgramme ?>">Export CSV</a>
+            <a class="button-link" href="<?= e(url('/admin/mailing/export') . '?programme=' . (int) $selectedProgramme) ?>">Export CSV</a>
         <?php endif; ?>
     </form>
 </section>
 
 <?php if ($selectedProgramme > 0): ?>
-    <section>
-        <h3>Interested students</h3>
+    <section class="admin-panel">
+        <h2 class="section-title">Interested students</h2>
         <?php if (!$mailingList): ?>
             <p>No students registered for this programme yet.</p>
         <?php else: ?>

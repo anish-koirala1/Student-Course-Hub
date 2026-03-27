@@ -1,5 +1,5 @@
-<section>
-    <h2><?= $programme ? 'Edit programme' : 'Create programme' ?></h2>
+<section class="admin-panel admin-panel--form">
+    <h1 class="admin-page-title"><?= $programme ? 'Edit programme' : 'Create programme' ?></h1>
     <form method="post" action="<?= e($action) ?>">
         <?= csrf_input() ?>
         <label for="name">Programme name</label>
@@ -39,7 +39,9 @@
             Published on student-facing website
         </label>
 
-        <button type="submit"><?= $programme ? 'Update programme' : 'Create programme' ?></button>
-        <a href="/admin" class="button-link">Cancel</a>
+        <div class="form-actions">
+            <button type="submit"><?= $programme ? 'Update programme' : 'Create programme' ?></button>
+            <a href="<?= e(url('/admin')) ?>" class="button-link button-link--ghost">Cancel</a>
+        </div>
     </form>
 </section>

@@ -65,9 +65,56 @@ function flash(string $key, ?string $value = null): ?string
     return $message;
 }
 
+/**
+ * Base URL path of the app (e.g. "" or "/webassignment/public") for XAMPP subfolder installs.
+ */
+function request_base_path(): string
+{
+    static $cached = null;
+    if ($cached !== null) {
+        return $cached;
+    }
+    $script = (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php');
+    $dir = str_replace('\\', '/', dirname($script));
+    $cached = ($dir === '/' || $dir === '.') ? '' : rtrim($dir, '/');
+
+    return $cached;
+}
+
+/**
+ * Normalised path for routing (no subdirectory prefix), e.g. "/programmes".
+ */
+function current_request_path(): string
+{
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+    $base = request_base_path();
+    if ($base !== '' && str_starts_with($path, $base)) {
+        $path = substr($path, strlen($base)) ?: '/';
+    }
+    if ($path === '' || ($path[0] ?? '') !== '/') {
+        $path = '/' . ltrim($path, '/');
+    }
+
+    return $path;
+}
+
+/**
+ * Build an absolute path from site root including subdirectory prefix.
+ */
+function url(string $path = '/'): string
+{
+    $base = request_base_path();
+    if ($path === '' || $path === '/') {
+        return $base === '' ? '/' : $base . '/';
+    }
+    $path = $path[0] === '/' ? $path : '/' . $path;
+
+    return $base . $path;
+}
+
 function redirect(string $path): void
 {
-    header('Location: ' . $path);
+    header('Location: ' . url($path));
     exit;
 }
 

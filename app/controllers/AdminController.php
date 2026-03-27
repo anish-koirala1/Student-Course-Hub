@@ -81,7 +81,7 @@ final class AdminController extends Controller
             'programme' => $id ? $this->programmes->find($id, true) : null,
             'levels' => $this->programmes->levels(),
             'staff' => $this->staff->all(),
-            'action' => $id ? '/admin/programmes/' . $id . '/update' : '/admin/programmes/create',
+            'action' => url($id ? '/admin/programmes/' . $id . '/update' : '/admin/programmes/create'),
         ]);
     }
 
@@ -128,7 +128,7 @@ final class AdminController extends Controller
         $this->view('admin/module_form', [
             'module' => $id ? $this->modules->find($id) : null,
             'staff' => $this->staff->all(),
-            'action' => $id ? '/admin/modules/' . $id . '/update' : '/admin/modules/create',
+            'action' => url($id ? '/admin/modules/' . $id . '/update' : '/admin/modules/create'),
         ]);
     }
 

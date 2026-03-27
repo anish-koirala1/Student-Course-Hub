@@ -1,6 +1,9 @@
-<section>
-    <h2>Explore degree programmes</h2>
-    <form class="filter-form" method="get" action="/programmes">
+<section class="page-block">
+    <header class="page-intro">
+        <h1>Explore degree programmes</h1>
+        <p class="page-intro__lead muted">Filter by level or search to find the right pathway.</p>
+    </header>
+    <form class="filter-form" method="get" action="<?= e(url('/programmes')) ?>">
         <label for="q">Search by keyword</label>
         <input id="q" name="q" value="<?= e($query) ?>" placeholder="e.g. Cyber Security">
 
@@ -25,7 +28,7 @@
         <?php foreach ($programmes as $programme): ?>
             <li class="card">
                 <h3>
-                    <a href="/programme/<?= (int) $programme['ProgrammeID'] ?>">
+                    <a href="<?= e(url('/programme/' . (int) $programme['ProgrammeID'])) ?>">
                         <?= e($programme['ProgrammeName']) ?>
                     </a>
                 </h3>

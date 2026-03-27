@@ -1,14 +1,14 @@
-<section class="hero hero-professional">
+<section class="hero hero-professional hero--mesh" aria-labelledby="hero-title">
     <div class="hero-main">
         <p class="eyebrow">Student Course Hub</p>
-        <h2>Build your future with confidence</h2>
+        <h1 id="hero-title">Build your future with confidence</h1>
         <p class="hero-lead">
             Discover programmes inspired by the Tribhuvan University model, compare
             academic pathways, and plan your next step with clear course and module details.
         </p>
         <div class="hero-actions">
-            <a class="button-link" href="/programmes">Explore Programmes</a>
-            <a class="button-link secondary-link" href="/admin/login">Admin Portal</a>
+            <a class="button-link" href="<?= e(url('/programmes')) ?>">Explore Programmes</a>
+            <a class="button-link secondary-link" href="<?= e(url('/admin/login')) ?>">Admin Portal</a>
         </div>
     </div>
     <aside class="hero-panel" aria-label="Quick highlights">
@@ -21,8 +21,8 @@
     </aside>
 </section>
 
-<section>
-    <h3>About Tribhuvan University</h3>
+<section class="content-section prose-block">
+    <h2>About Tribhuvan University</h2>
     <p>
         Tribhuvan University is one of Nepal's oldest and largest public universities.
         Known for broad academic offerings and national reach through campuses and
@@ -31,8 +31,8 @@
     </p>
 </section>
 
-<section class="landing-grid" aria-label="Key information">
-    <article>
+<section class="landing-grid content-section" aria-label="Key information">
+    <article class="feature-tile">
         <h3>Academic Faculties</h3>
         <p class="muted">A multi-disciplinary study environment.</p>
         <ul>
@@ -41,7 +41,7 @@
             <li>Humanities, Education, and Law</li>
         </ul>
     </article>
-    <article>
+    <article class="feature-tile">
         <h3>Student Journey</h3>
         <p class="muted">Simple steps from discovery to decision.</p>
         <ol>
@@ -50,7 +50,7 @@
             <li>Register interest for updates and guidance.</li>
         </ol>
     </article>
-    <article>
+    <article class="feature-tile">
         <h3>Why this platform</h3>
         <p class="muted">Built for clarity and faster decisions.</p>
         <ul>
@@ -61,10 +61,10 @@
     </article>
 </section>
 
-<section class="landing-cta">
-    <h3>Start exploring today</h3>
+<section class="landing-cta content-section">
+    <h2>Start exploring today</h2>
     <p>
         View available programmes and find the right academic pathway for your goals.
     </p>
-    <a class="button-link" href="/programmes">Go to Programmes</a>
+    <a class="button-link" href="<?= e(url('/programmes')) ?>">Go to Programmes</a>
 </section>

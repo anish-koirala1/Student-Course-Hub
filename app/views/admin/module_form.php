@@ -1,5 +1,5 @@
-<section>
-    <h2><?= $module ? 'Edit module' : 'Create module' ?></h2>
+<section class="admin-panel admin-panel--form">
+    <h1 class="admin-page-title"><?= $module ? 'Edit module' : 'Create module' ?></h1>
     <form method="post" action="<?= e($action) ?>">
         <?= csrf_input() ?>
         <label for="name">Module name</label>
@@ -22,7 +22,9 @@
         <label for="image">Image URL</label>
         <input id="image" name="image" maxlength="255" value="<?= e($module['Image'] ?? '') ?>">
 
-        <button type="submit"><?= $module ? 'Update module' : 'Create module' ?></button>
-        <a href="/admin" class="button-link">Cancel</a>
+        <div class="form-actions">
+            <button type="submit"><?= $module ? 'Update module' : 'Create module' ?></button>
+            <a href="<?= e(url('/admin')) ?>" class="button-link button-link--ghost">Cancel</a>
+        </div>
     </form>
 </section>
