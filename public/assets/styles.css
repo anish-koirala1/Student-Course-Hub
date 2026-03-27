@@ -1,4 +1,4 @@
-/* Student Course Hub — warm editorial / academic theme */
+/* Tribhuvan University — warm editorial / academic theme */
 
 :root {
     color-scheme: light;
@@ -63,6 +63,12 @@ body.site--admin {
     background-image:
         radial-gradient(ellipse 90% 60% at 100% 0%, rgba(26, 93, 74, 0.07), transparent 45%),
         linear-gradient(180deg, #eef0ed 0%, var(--bg) 35%);
+}
+
+body.site--staff {
+    background-image:
+        radial-gradient(ellipse 85% 55% at 0% 0%, rgba(26, 93, 74, 0.06), transparent 42%),
+        linear-gradient(180deg, #f0f3f1 0%, var(--bg) 40%);
 }
 
 .container {
@@ -168,6 +174,10 @@ body.site--admin {
 
 .site--admin .site-nav__link.is-active {
     background: var(--ink);
+}
+
+.site--staff .site-nav__link.is-active {
+    background: #2d5a4a;
 }
 
 /* —— Typography —— */
@@ -830,6 +840,89 @@ button.danger:hover {
     margin: 0;
 }
 
+/* Collapsible programme / module tables (native <details>) */
+.admin-panel--disclosure {
+    padding: 0;
+    overflow: hidden;
+}
+
+.admin-panel--disclosure .admin-disclosure {
+    border: 0;
+    margin: 0;
+}
+
+.admin-disclosure__summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem 1.25rem;
+    padding: 1.25rem 1.65rem;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
+    user-select: none;
+}
+
+.admin-disclosure__summary::-webkit-details-marker {
+    display: none;
+}
+
+.admin-disclosure__summary::marker {
+    content: '';
+}
+
+.admin-disclosure__summary:hover {
+    background: rgba(26, 93, 74, 0.04);
+}
+
+.admin-disclosure__summary:focus {
+    outline: none;
+}
+
+.admin-disclosure__summary:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: -3px;
+}
+
+.admin-disclosure__marker {
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid var(--ink-soft);
+    border-bottom: 2px solid var(--ink-soft);
+    transform: rotate(-45deg);
+    transition: transform 0.2s ease;
+    margin-right: 0.15rem;
+}
+
+.admin-disclosure[open] > .admin-disclosure__summary .admin-disclosure__marker {
+    transform: rotate(45deg);
+    margin-top: 0.15rem;
+}
+
+.admin-disclosure__title {
+    flex: 1;
+    min-width: 8rem;
+    margin: 0;
+    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+    letter-spacing: -0.02em;
+}
+
+.admin-disclosure__action {
+    margin-left: auto;
+    font-size: 0.95rem;
+    font-family: var(--font-ui);
+    font-weight: 600;
+}
+
+.admin-disclosure__body {
+    padding: 0 1.65rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: rgba(255, 252, 247, 0.5);
+}
+
 .admin-panel--intro .admin-panel__head {
     margin-bottom: 0;
     flex: 1;
@@ -879,6 +972,57 @@ button.danger:hover {
 
 .admin-link-list a {
     font-weight: 600;
+}
+
+/* —— Staff dashboard —— */
+.staff-dashboard__intro {
+    margin-bottom: 1.25rem;
+}
+
+.staff-dashboard__section {
+    margin-bottom: 1.5rem;
+}
+
+.staff-dashboard__hint {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+}
+
+.staff-module-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.staff-module-list__item {
+    padding: 1rem 1.1rem;
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+.staff-module-list__title {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+}
+
+.staff-module-list__item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+}
+
+.staff-programme-led-list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+}
+
+.staff-programme-led-list li {
+    margin-bottom: 0.4rem;
 }
 
 .admin-page-title {

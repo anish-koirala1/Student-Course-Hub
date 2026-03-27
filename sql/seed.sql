@@ -4,13 +4,27 @@ INSERT INTO Levels (LevelID, LevelName) VALUES
 (1, 'Undergraduate'),
 (2, 'Postgraduate');
 
-INSERT INTO Staff (StaffID, Name) VALUES
-(1, 'Dr. Alice Johnson'), (2, 'Dr. Brian Lee'), (3, 'Dr. Carol White'), (4, 'Dr. David Green'),
-(5, 'Dr. Emma Scott'), (6, 'Dr. Frank Moore'), (7, 'Dr. Grace Adams'), (8, 'Dr. Henry Clark'),
-(9, 'Dr. Irene Hall'), (10, 'Dr. James Wright'),
-(11, 'Dr. Sophia Miller'), (12, 'Dr. Benjamin Carter'), (13, 'Dr. Chloe Thompson'), (14, 'Dr. Daniel Robinson'),
-(15, 'Dr. Emily Davis'), (16, 'Dr. Nathan Hughes'), (17, 'Dr. Olivia Martin'), (18, 'Dr. Samuel Anderson'),
-(19, 'Dr. Victoria Hall'), (20, 'Dr. William Scott');
+INSERT INTO Staff (StaffID, Name, Username, PasswordHash) VALUES
+(1, 'Dr. Alice Johnson', 'alice', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(2, 'Dr. Brian Lee', 'brian', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(3, 'Dr. Carol White', 'carol', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(4, 'Dr. David Green', 'david', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(5, 'Dr. Emma Scott', 'emma', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(6, 'Dr. Frank Moore', 'frank', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(7, 'Dr. Grace Adams', 'grace', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(8, 'Dr. Henry Clark', 'henry', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(9, 'Dr. Irene Hall', 'irene', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(10, 'Dr. James Wright', 'james', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(11, 'Dr. Sophia Miller', 'sophia', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(12, 'Dr. Benjamin Carter', 'benjamin', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(13, 'Dr. Chloe Thompson', 'chloe', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(14, 'Dr. Daniel Robinson', 'daniel', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(15, 'Dr. Emily Davis', 'emily', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(16, 'Dr. Nathan Hughes', 'nathan', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(17, 'Dr. Olivia Martin', 'olivia', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(18, 'Dr. Samuel Anderson', 'samuel', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(19, 'Dr. Victoria Hall', 'victoria', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi'),
+(20, 'Dr. William Scott', 'william', '$2y$12$xBGEC/Ysg1qA/3YGvsQXP.zkrkn.YpHTsf9UbGV.dPSs0J8ML4ALi');
 
 INSERT INTO Modules (ModuleID, ModuleName, ModuleLeaderID, Description, Image) VALUES
 (1, 'Introduction to Programming', 1, 'Covers the fundamentals of programming using Python and Java.', NULL),

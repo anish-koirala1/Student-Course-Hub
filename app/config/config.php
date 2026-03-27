@@ -13,7 +13,7 @@ return [
         'charset' => 'utf8mb4',
     ],
     'app' => [
-        'name' => 'Student Course Hub',
+        'name' => 'Tribhuvan University',
         'base_path' => '',
     ],
 ];

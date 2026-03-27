@@ -17,7 +17,9 @@ CREATE TABLE Levels (
 
 CREATE TABLE Staff (
     StaffID INT PRIMARY KEY,
-    Name VARCHAR(120) NOT NULL
+    Name VARCHAR(120) NOT NULL,
+    Username VARCHAR(80) NULL UNIQUE,
+    PasswordHash VARCHAR(255) NULL
 );
 
 CREATE TABLE Modules (

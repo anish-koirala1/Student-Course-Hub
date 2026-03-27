@@ -1,6 +1,6 @@
-# Student Course Hub (CTEC2712)
+# Tribhuvan University (CTEC2712)
 
-Student Course Hub is a PHP MVC web application for the CTEC2712 Web Application Development project.
+Tribhuvan University is a PHP MVC web application for the CTEC2712 Web Application Development project.
 
 ## Prerequisites
 
@@ -46,6 +46,7 @@ Place the project under `htdocs` (this repo path is already `htdocs/webassignmen
 Open in the browser (note the **`public`** folder is the web root):
 
 - Student site: `http://localhost/webassignment/public/`
+- Staff portal: `http://localhost/webassignment/public/staff/login` (after seeding; see below)
 - Admin login: `http://localhost/webassignment/public/admin/login`
 
 Visiting `http://localhost/webassignment/` redirects to `public/` if `AllowOverride` allows `.htaccess` (default in XAMPP).
@@ -59,12 +60,29 @@ php -S 127.0.0.1:8000 -t public
 ```
 
 - Student: `http://127.0.0.1:8000/`
+- Staff portal: `http://127.0.0.1:8000/staff/login`
 - Admin login: `http://127.0.0.1:8000/admin/login`
+
+### Existing database: staff login columns
+
+If you already created the database from an older `schema.sql`, add the new columns then re-run the `UPDATE` statements from `sql/seed.sql` (or run):
+
+```bash
+/Applications/XAMPP/xamppfiles/bin/mysql -u root < sql/migration_staff_auth.sql
+```
+
+Then re-run `sql/seed.sql` (or copy the `INSERT INTO Staff ...` block from it) so demo usernames and `PasswordHash` values are applied.
 
 ## Default Admin Credentials
 
 - Admin account: `admin` / `admin123`
 - Editor account: `editor` / `admin123`
+
+## Staff portal (demo accounts)
+
+After a full seed, **every** staff member can sign in. Password for all: **`staff123`**. **Username** is their first name in lowercase (as in `sql/seed.sql`): `alice`, `brian`, `carol`, `david`, `emma`, `frank`, `grace`, `henry`, `irene`, `james`, `sophia`, `benjamin`, `chloe`, `daniel`, `emily`, `nathan`, `olivia`, `samuel`, `victoria`, `william`.
+
+The dashboard shows **modules they lead**, **programmes they lead** (programme leader role), and **where their modules appear** on each degree (programme, level, year).
 
 ## Notes on Roles
 

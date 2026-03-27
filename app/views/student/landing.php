@@ -1,6 +1,6 @@
 <section class="hero hero-professional hero--mesh" aria-labelledby="hero-title">
     <div class="hero-main">
-        <p class="eyebrow">Student Course Hub</p>
+        <p class="eyebrow">Tribhuvan University</p>
         <h1 id="hero-title">Build your future with confidence</h1>
         <p class="hero-lead">
             Discover programmes inspired by the Tribhuvan University model, compare

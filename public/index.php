@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Controllers\AdminController;
+use Controllers\StaffController;
 use Controllers\StudentController;
 
 require_once __DIR__ . '/../app/bootstrap.php';
@@ -20,6 +21,7 @@ $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 $student = new StudentController();
 $admin = new AdminController();
+$staff = new StaffController();
 
 if ($path === '/' && $method === 'GET') {
     $student->landing();
@@ -43,6 +45,26 @@ if ($path === '/interest/register' && $method === 'POST') {
 
 if ($path === '/interest/withdraw' && $method === 'POST') {
     $student->withdrawInterest();
+    return;
+}
+
+if ($path === '/staff/login' && $method === 'GET') {
+    $staff->loginForm();
+    return;
+}
+
+if ($path === '/staff/login' && $method === 'POST') {
+    $staff->login();
+    return;
+}
+
+if ($path === '/staff/logout' && $method === 'POST') {
+    $staff->logout();
+    return;
+}
+
+if (($path === '/staff' || $path === '/staff/dashboard') && $method === 'GET') {
+    $staff->dashboard();
     return;
 }
 

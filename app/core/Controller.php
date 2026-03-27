@@ -35,4 +35,12 @@ class Controller
             exit;
         }
     }
+
+    protected function requireStaffLogin(): void
+    {
+        if (empty($_SESSION['staff'])) {
+            flash('error', 'Please sign in to the staff portal first.');
+            redirect('/staff/login');
+        }
+    }
 }

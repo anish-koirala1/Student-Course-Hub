@@ -9,76 +9,86 @@
     </form>
 </section>
 
-<section class="admin-panel">
-    <div class="admin-panel__head">
-        <h2>Programmes</h2>
-        <a class="text-link" href="<?= e(url('/admin/programmes/create')) ?>">+ Create programme</a>
-    </div>
-    <div class="table-wrap">
-        <table>
-            <caption class="sr-only">Programmes list</caption>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Level</th>
-                <th>Leader</th>
-                <th>Published</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($programmes as $programme): ?>
-                <tr>
-                    <td data-label="Name"><?= e($programme['ProgrammeName']) ?></td>
-                    <td data-label="Level"><?= e($programme['LevelName']) ?></td>
-                    <td data-label="Leader"><?= e($programme['ProgrammeLeader'] ?? 'TBA') ?></td>
-                    <td data-label="Published"><?= (int) $programme['IsPublished'] === 1 ? 'Yes' : 'No' ?></td>
-                    <td data-label="Actions">
-                        <a href="<?= e(url('/admin/programmes/' . (int) $programme['ProgrammeID'] . '/edit')) ?>">Edit</a>
-                        <form class="inline" method="post" action="<?= e(url('/admin/programmes/' . (int) $programme['ProgrammeID'] . '/delete')) ?>">
-                            <?= csrf_input() ?>
-                            <button type="submit" class="danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+<section class="admin-panel admin-panel--disclosure">
+    <details class="admin-disclosure">
+        <summary class="admin-disclosure__summary">
+            <span class="admin-disclosure__marker" aria-hidden="true"></span>
+            <h2 class="admin-disclosure__title" id="heading-dashboard-programmes">Programmes</h2>
+            <a class="text-link admin-disclosure__action" href="<?= e(url('/admin/programmes/create')) ?>">+ Create programme</a>
+        </summary>
+        <div class="admin-disclosure__body" role="region" aria-labelledby="heading-dashboard-programmes">
+            <div class="table-wrap">
+                <table>
+                    <caption class="sr-only">Programmes list</caption>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Level</th>
+                        <th>Leader</th>
+                        <th>Published</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($programmes as $programme): ?>
+                        <tr>
+                            <td data-label="Name"><?= e($programme['ProgrammeName']) ?></td>
+                            <td data-label="Level"><?= e($programme['LevelName']) ?></td>
+                            <td data-label="Leader"><?= e($programme['ProgrammeLeader'] ?? 'TBA') ?></td>
+                            <td data-label="Published"><?= (int) $programme['IsPublished'] === 1 ? 'Yes' : 'No' ?></td>
+                            <td data-label="Actions">
+                                <a href="<?= e(url('/admin/programmes/' . (int) $programme['ProgrammeID'] . '/edit')) ?>">Edit</a>
+                                <form class="inline" method="post" action="<?= e(url('/admin/programmes/' . (int) $programme['ProgrammeID'] . '/delete')) ?>">
+                                    <?= csrf_input() ?>
+                                    <button type="submit" class="danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </details>
 </section>
 
-<section class="admin-panel">
-    <div class="admin-panel__head">
-        <h2>Modules</h2>
-        <a class="text-link" href="<?= e(url('/admin/modules/create')) ?>">+ Create module</a>
-    </div>
-    <div class="table-wrap">
-        <table>
-            <caption class="sr-only">Modules list</caption>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Leader</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($modules as $module): ?>
-                <tr>
-                    <td data-label="Name"><?= e($module['ModuleName']) ?></td>
-                    <td data-label="Leader"><?= e($module['ModuleLeader'] ?? 'TBA') ?></td>
-                    <td data-label="Actions">
-                        <a href="<?= e(url('/admin/modules/' . (int) $module['ModuleID'] . '/edit')) ?>">Edit</a>
-                        <form class="inline" method="post" action="<?= e(url('/admin/modules/' . (int) $module['ModuleID'] . '/delete')) ?>">
-                            <?= csrf_input() ?>
-                            <button type="submit" class="danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+<section class="admin-panel admin-panel--disclosure">
+    <details class="admin-disclosure">
+        <summary class="admin-disclosure__summary">
+            <span class="admin-disclosure__marker" aria-hidden="true"></span>
+            <h2 class="admin-disclosure__title" id="heading-dashboard-modules">Modules</h2>
+            <a class="text-link admin-disclosure__action" href="<?= e(url('/admin/modules/create')) ?>">+ Create module</a>
+        </summary>
+        <div class="admin-disclosure__body" role="region" aria-labelledby="heading-dashboard-modules">
+            <div class="table-wrap">
+                <table>
+                    <caption class="sr-only">Modules list</caption>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Leader</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($modules as $module): ?>
+                        <tr>
+                            <td data-label="Name"><?= e($module['ModuleName']) ?></td>
+                            <td data-label="Leader"><?= e($module['ModuleLeader'] ?? 'TBA') ?></td>
+                            <td data-label="Actions">
+                                <a href="<?= e(url('/admin/modules/' . (int) $module['ModuleID'] . '/edit')) ?>">Edit</a>
+                                <form class="inline" method="post" action="<?= e(url('/admin/modules/' . (int) $module['ModuleID'] . '/delete')) ?>">
+                                    <?= csrf_input() ?>
+                                    <button type="submit" class="danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </details>
 </section>
 
 <section class="admin-panel admin-panel--compact">

@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 $reqPath = current_request_path();
 $isAdmin = str_starts_with($reqPath, '/admin');
-$bodyClass = 'site' . ($isAdmin ? ' site--admin' : '') . ($reqPath === '/' ? ' site--home' : '');
+$isStaff = str_starts_with($reqPath, '/staff');
+$bodyClass = 'site'
+    . ($isAdmin ? ' site--admin' : '')
+    . ($isStaff ? ' site--staff' : '')
+    . ($reqPath === '/' ? ' site--home' : '');
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,6 +32,7 @@ $bodyClass = 'site' . ($isAdmin ? ' site--admin' : '') . ($reqPath === '/' ? ' s
         <nav class="site-nav" aria-label="Primary">
             <a class="site-nav__link<?= $reqPath === '/' ? ' is-active' : '' ?>" href="<?= e(url('/')) ?>">Home</a>
             <a class="site-nav__link<?= str_starts_with($reqPath, '/programme') ? ' is-active' : '' ?>" href="<?= e(url('/programmes')) ?>">Programmes</a>
+            <a class="site-nav__link<?= $isStaff ? ' is-active' : '' ?>" href="<?= e(url('/staff')) ?>">Staff</a>
             <a class="site-nav__link<?= $isAdmin ? ' is-active' : '' ?>" href="<?= e(url('/admin/dashboard')) ?>">Admin</a>
         </nav>
     </div>
